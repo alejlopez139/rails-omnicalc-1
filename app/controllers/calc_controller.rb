@@ -11,7 +11,12 @@ class CalcController < ApplicationController
   end
 
   def square_root_new
-      render({:template => "calc_templates/square_root_new"})
+    render({:template => "calc_templates/square_root_new"})
   end
 
+  def square_root_result
+    @num = params.fetch("user_number").to_f
+    @the_result = @num ** 0.5
+    render({:template => "calc_templates/square_root_results"})
+  end
 end
