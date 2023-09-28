@@ -44,4 +44,12 @@ class CalcController < ApplicationController
   def random_new
     render(:template =>"calc_templates/random_new")
   end
+
+  def random_result
+    @min = params.fetch("min").to_i
+    @max = params.fetch("max").to_i
+    @result = Random.new
+    @newresult = @result.rand(@min..@max)
+    render(:template => "calc_templates/random_result")
+  end
 end
